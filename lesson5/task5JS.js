@@ -381,13 +381,13 @@ let cinderellaHousePartTwo = [
 ];
 
 function PrincePartTwo(name, age, shoe, search) {
-    this.nameS = name;
-    this.ageS = age;
-    this.shoeS = shoe;
+    this.name = name;
+    this.age = age;
+    this.shoe = shoe;
     this.search = function () {
         for (const cinderella of cinderellaHousePartTwo) {
-            if (cinderella.size === andrew.shoe){
-                console.log(`Принц ${andrew.name} знайшов свою принцесу, то є - ${cinderella.name}`)
+            if (cinderella.size === this.shoe){
+                console.log(`Принц ${this.name} знайшов свою принцесу, то є - ${cinderella.name}`)
             }
         }
 
@@ -395,8 +395,7 @@ function PrincePartTwo(name, age, shoe, search) {
 }
 
 let andrew = new PrincePartTwo('Andrew', 26, 40);
-let max = new PrincePartTwo('Max', 21, 33);
+let max = new PrincePartTwo('Max', 24, 37);
 
-
-andrew.search()
-max.search()
+andrew.search();
+max.search();
