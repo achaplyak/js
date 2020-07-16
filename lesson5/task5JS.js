@@ -397,5 +397,6 @@ function PrincePartTwo(name, age, shoe, search) {
 let andrew = new PrincePartTwo('Andrew', 26, 40);
 let max = new PrincePartTwo('Max', 21, 33);
 
+
 andrew.search()
 max.search()
