@@ -307,7 +307,37 @@ let tesla = new Car('Model 3', 'Tesla, Inc.', 2017, 261,'54 or 62 or 75 kWh (190
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
 // ==============================================
 
+class NewCar {
+    constructor(modelTwo, manufacturerTwo, yearOfProductionTwo, maxSpeedTwo, batteryTwo) {
+        this.modelTwo = modelTwo;
+        this.manufacturerTwo = manufacturerTwo;
+        this.yearOfProductionTwo = yearOfProductionTwo;
+        this.maxSpeedTwo = maxSpeedTwo;
+        this.batteryTwo = batteryTwo;
 
+    };
+
+    driveTwo () {
+        console.log(`їдемо зі швидкістю ${this.maxSpeedTwo} km на годину`);
+    };
+    infoTwo () {
+        console.log(this);
+    };
+    increaseMaxSpeedTwo (newSpeed){
+        this.maxSpeedTwo += newSpeed;
+        console.log(newSpeed);
+    };
+    changeYearTwo (newValue){
+        this.yearOfProductionTwo = newValue;
+        console.log(newValue);
+    };
+    addDriverTwo (driver){
+        this.driver = driver;
+        console.log(driver);
+    }
+}
+
+let teslaModel = new NewCar('Model 3', 'Tesla, Inc.', 2017, 261,'54 or 62 or 75 kWh (190 or 220 or 270 MJ) Lithium ion');
 
 // ==============================================
 //     -створити класс попелюшка з полями ім'я, вік, розмір ноги
