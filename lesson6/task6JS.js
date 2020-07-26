@@ -289,15 +289,47 @@ let volumeTwo = cars.filter(item => item.volume === 2);
 console.log(volumeTwo);
 
 // - виробник мерс
+
+let producers = cars.filter(item => item.producer === 'mercedes');
+
 // - двигун більше 3х літрів + виробник мерседес
+
+let producerVolume = cars.filter(item => item.producer === 'mercedes' && item.volume >= 3);
+
 // - двигун більше 3х літрів + виробник субару
+
+let producerVolumeTwo = cars.filter(item => item.producer === 'subaru' && item.volume >= 3);
+
 // - сили більше ніж 300
+
+let powers = cars.filter(item => item.power >= 300);
+
 // - сили більше ніж 300 + виробник субару
+
+let powersProducer = cars.filter(item => item.power >= 300 && item.producer === 'subaru');
+
 // - мотор серіі ej
+
+let engines = cars.filter(item => item.engine.startsWith('ej'));
+
 // - сили більше ніж 300 + виробник субару + мотор серіі ej
+
+let powersProducerEngine = cars.filter(item => item.power >= 300
+    && item.producer === 'subaru'
+    && item.engine.startsWith('ej'));
+
 // - двигун меньше 3х літрів + виробник мерседес
+
+let producerVolumeSecond = cars.filter(item => item.producer === 'mercedes' && item.volume <= 3);
+
 // - двигун більше 2л + сили більше 250
+
+let volumePowers = cars.filter(item => item.volume >= 2 && item.power >= 250);
+
 // - сили більше 250  + виробник бмв
+
+let powersProducers = cars.filter(item => item.power >= 250 && item.producer === 'bmw');
+
 //
 //
 //
