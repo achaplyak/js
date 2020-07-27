@@ -46,16 +46,65 @@ a1.onclick = event => {
         subMenu.style.display = 'none';
         flag = true;
     }
-}
+};
 
 // - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
 //     Вывести список комментариев в документ, каждый в своем блоке.
 //     Добавьте каждому комментарию по кнопке для сворачивания его body.
-//
+
+let cmntArr = [
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+];
+
+const content  = document.getElementById("content");
+
+cmntArr.forEach(item => {
+    const div = document.createElement('div');
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
+    const button = document.createElement('button');
+
+    button.innerText = 'Click';
+    h2.innerText = item.title;
+    p.innerText = item.body;
+
+    button.onclick = () => {
+        p.hidden
+            ? p.hidden = false
+            : p.hidden = true
+    }
+
+    div.appendChild(h2);
+    div.appendChild(p);
+    div.appendChild(button);
+
+    content.appendChild(div);
+
+})
+
 // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
 //     Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
 // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
-//
+
+const newBtn = document.getElementById('btn');
+const inputOne = document.getElementById('inputOne');
+const inputTwo = document.getElementById('inputTwo');
+const inputThree = document.getElementById('inputThree');
+const inputFour = document.getElementById('inputFour');
+
+newBtn.onclick = ev => {
+    console.log(inputOne.value);
+    console.log(inputTwo.value);
+    console.log(inputThree.value);
+    console.log(inputFour.value);
+}
+
 // - Створити функцію, яка генерує таблицю.
 //     Перший аргумент визначає кількість строк.
 //     Другий параметр визначає кліькіть ячеєк в кожній строці.
