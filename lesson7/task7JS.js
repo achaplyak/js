@@ -109,8 +109,25 @@ newBtn.onclick = ev => {
 //     Перший аргумент визначає кількість строк.
 //     Другий параметр визначає кліькіть ячеєк в кожній строці.
 //     Третій параметр визначає елемент в який потрібно таблицю додати.
-//
-//
+
+const newContent = document.getElementById("newContent");
+
+function createTable(rows, cols, tag){
+    const table = document.createElement("table");
+    for (let i = 0; i < rows.length; i++) {
+        const tr = document.createElement("tr");
+        for (let j = 0; j < cols; j++) {
+            const td = document.createElement("td");
+            td.innerHTML = i.toString() + j.toString();
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+
+    }
+    tag.appendChild(table);
+}
+createTable(4, 5, content)
+
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
