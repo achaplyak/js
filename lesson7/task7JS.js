@@ -1,140 +1,196 @@
-// - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
-
-const txt = document.getElementById("text");
-const btn = document.getElementById("newButton");
-txt.style.display = 'block'
-
-btn.onclick = event => {
-    if (txt.style.display === 'block') {
-        txt.style.display = 'none'
-    } else {
-        txt.style.display = 'block'
-    }
-};
-
-//     - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
-
-btn.onclick = event => {
-    btn.style.display = 'none'
-};
-
-// - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
-
-btn.onclick = ev => {
-    const inpt = document.getElementById("newInput");
-    const value = inpt.value;
-    if (value < 18 && value > 0){
-        alert('you are still too young')
-    } if (value <= 0 || value > 110){
-        alert('wrongly')
-    }
-};
-
-// - Создайте меню, которое раскрывается/сворачивается при клике
-
-const a1 = document.getElementById("a1");
-
-const subMenu = document.getElementById("subMenu");
-
-let flag = false;
-
-a1.onclick = event => {
-    if(flag){
-        subMenu.style.display = 'block';
-        flag = false;
-    } else {
-        subMenu.style.display = 'none';
-        flag = true;
-    }
-};
-
-// - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
-//     Вывести список комментариев в документ, каждый в своем блоке.
-//     Добавьте каждому комментарию по кнопке для сворачивания его body.
-
-let cmntArr = [
-    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
-    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
-    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
-    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
-    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
-    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
-    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
-];
-
-const content  = document.getElementById("content");
-
-cmntArr.forEach(item => {
-    const div = document.createElement('div');
-    const h2 = document.createElement('h2');
-    const p = document.createElement('p');
-    const button = document.createElement('button');
-
-    button.innerText = 'Click';
-    h2.innerText = item.title;
-    p.innerText = item.body;
-
-    button.onclick = () => {
-        p.hidden
-            ? p.hidden = false
-            : p.hidden = true
-    }
-
-    div.appendChild(h2);
-    div.appendChild(p);
-    div.appendChild(button);
-
-    content.appendChild(div);
-
-})
-
-// - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
-//     Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
-// Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
-
-const newBtn = document.getElementById('btn');
-const inputOne = document.getElementById('inputOne');
-const inputTwo = document.getElementById('inputTwo');
-const inputThree = document.getElementById('inputThree');
-const inputFour = document.getElementById('inputFour');
-
-newBtn.onclick = ev => {
-    console.log(inputOne.value);
-    console.log(inputTwo.value);
-    console.log(inputThree.value);
-    console.log(inputFour.value);
-}
-
-// - Створити функцію, яка генерує таблицю.
-//     Перший аргумент визначає кількість строк.
-//     Другий параметр визначає кліькіть ячеєк в кожній строці.
-//     Третій параметр визначає елемент в який потрібно таблицю додати.
-
-const newContent = document.getElementById("newContent");
-
-function createTable(rows, cols, tag){
-    const table = document.createElement("table");
-    for (let i = 0; i < rows.length; i++) {
-        const tr = document.createElement("tr");
-        for (let j = 0; j < cols; j++) {
-            const td = document.createElement("td");
-            td.innerHTML = i.toString() + j.toString();
-            tr.appendChild(td);
-        }
-        table.appendChild(tr);
-
-    }
-    tag.appendChild(table);
-}
-createTable(4, 5, content)
-
-// - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
-//     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
-// (Додатковачастина для завдання)
+// // - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
 //
-// - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+// const txt = document.getElementById("text");
+// const btn = document.getElementById("newButton");
+// txt.style.display = 'block'
 //
+// btn.onclick = event => {
+//     if (txt.style.display === 'block') {
+//         txt.style.display = 'none'
+//     } else {
+//         txt.style.display = 'block'
+//     }
+// };
 //
+// //     - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
+//
+// btn.onclick = event => {
+//     btn.style.display = 'none'
+// };
+//
+// // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+//
+// btn.onclick = ev => {
+//     const inpt = document.getElementById("newInput");
+//     const value = inpt.value;
+//     if (value < 18 && value > 0){
+//         alert('you are still too young')
+//     } if (value <= 0 || value > 110){
+//         alert('wrongly')
+//     }
+// };
+//
+// // - Создайте меню, которое раскрывается/сворачивается при клике
+//
+// const a1 = document.getElementById("a1");
+//
+// const subMenu = document.getElementById("subMenu");
+//
+// let flag = false;
+//
+// a1.onclick = event => {
+//     if(flag){
+//         subMenu.style.display = 'block';
+//         flag = false;
+//     } else {
+//         subMenu.style.display = 'none';
+//         flag = true;
+//     }
+// };
+//
+// // - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
+// //     Вывести список комментариев в документ, каждый в своем блоке.
+// //     Добавьте каждому комментарию по кнопке для сворачивания его body.
+//
+// let cmntArr = [
+//     {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+//     {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+//     {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+//     {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+//     {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+//     {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+//     {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+// ];
+//
+// const content  = document.getElementById("content");
+//
+// cmntArr.forEach(item => {
+//     const div = document.createElement('div');
+//     const h2 = document.createElement('h2');
+//     const p = document.createElement('p');
+//     const button = document.createElement('button');
+//
+//     button.innerText = 'Click';
+//     h2.innerText = item.title;
+//     p.innerText = item.body;
+//
+//     button.onclick = () => {
+//         p.hidden
+//             ? p.hidden = false
+//             : p.hidden = true
+//     }
+//
+//     div.appendChild(h2);
+//     div.appendChild(p);
+//     div.appendChild(button);
+//
+//     content.appendChild(div);
+//
+// })
+//
+// // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
+// //     Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
+// // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
+//
+// const newBtn = document.getElementById('btn');
+// const inputOne = document.getElementById('inputOne');
+// const inputTwo = document.getElementById('inputTwo');
+// const inputThree = document.getElementById('inputThree');
+// const inputFour = document.getElementById('inputFour');
+//
+// newBtn.onclick = ev => {
+//     console.log(inputOne.value);
+//     console.log(inputTwo.value);
+//     console.log(inputThree.value);
+//     console.log(inputFour.value);
+// }
+//
+// // - Створити функцію, яка генерує таблицю.
+// //     Перший аргумент визначає кількість строк.
+// //     Другий параметр визначає кліькіть ячеєк в кожній строці.
+// //     Третій параметр визначає елемент в який потрібно таблицю додати.
+//
+// const newContent = document.getElementById("newContent");
+//
+// function createTable(rows, cols, tag){
+//     const table = document.createElement("table");
+//     for (let i = 0; i < rows; i++) {
+//         const tr = document.createElement("tr");
+//         for (let j = 0; j < cols; j++) {
+//             const td = document.createElement("td");
+//             td.innerHTML = "test";
+//             tr.appendChild(td);
+//         }
+//         table.appendChild(tr);
+//
+//     }
+//     tag.appendChild(table);
+// }
+// createTable(4, 5, newContent)
+//
+// // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+// //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+// // (Додатковачастина для завдання)
+// //
+// // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+//
+// let imgArr = [
+//     {
+//         id: 1,
+//         img_url: 'img01.jpg'
+//     },
+//     {
+//         id: 2,
+//         img_url: 'img02.jpg'
+//     },
+//     {
+//         id: 3,
+//         img_url: 'img03.jpg'
+//     },
+//     {
+//         id: 4,
+//         img_url: 'img04.jpg'
+//     },
+//     {
+//         id: 5,
+//         img_url: 'img05.jpg'
+//     },
+// ];
+//
+// const contentImg = document.getElementById("contentImg");
+//
+// const img = document.createElement('img');
+// const buttonOne = document.createElement('button');
+// const buttonTwo = document.createElement('button');
+//
+// buttonOne.innerText = '←'
+// buttonTwo.innerText = '→'
+//
+// let index = 0;
+//
+// img.width = 400;
+// img.src = imgArr[index].img_url;
+//
+// contentImg.appendChild(img);
+// contentImg.appendChild(buttonOne);
+// contentImg.appendChild(buttonTwo);
+//
+// buttonOne.onclick = () => {
+//     index - 1 < 0
+//         ? index = imgArr.length - 1
+//         : index = index - 1
+//
+//     img.src = imgArr[index].img_url
+// };
+//
+// buttonTwo.onclick = () => {
+//     index + 1 > imgArr.length - 1
+//         ? index = 0
+//         : index = index + 1
+//
+//     img.src = imgArr[index].img_url
+// };
+
 // - Сворити масив не цензцрних слів.
 //     Сворити інпут текстового типу.
 //     Якщо людина вводить слово і воно міститься в масиві не цензурних слів
@@ -150,9 +206,33 @@ createTable(4, 5, content)
 //
 //
 //
-// -- создать скрипт, который берет считывает на странице (rules.html) текст и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
+// -- создать скрипт, который берет считывает на странице (rules.html) текст
+// и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
 //     При клике на пункт оглавления вы должны отправляться к этому пункту в тексте
-//
+
+const hwH2 = document.getElementsByTagName('h2');
+const newRules = document.getElementById('newRules');
+const wrap = document.getElementById('wrap');
+const ul = document.createElement('ul');
+
+for (let i = 0; i < hwH2.length; i++) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+
+    let anchor = 'anchor' + i;
+    a.href = '#' + anchor;
+    hwH2[i].setAttribute('id', anchor);
+    a.innerHTML = hwH2[i].innerText;
+    li.appendChild(a);
+    ul.appendChild(li);
+}
+
+newRules.appendChild(ul);
+newRules.style.width = '30%'
+wrap.style.width = '70%'
+newRules.style.float = 'left'
+wrap.style.float = 'left'
+
 // -- взять массив пользователей
 // let usersWithAddress = [
 //     {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
